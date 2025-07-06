@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mitumba Shoes - Children's Footwear</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js"></script>
 </head>
 <body>
     <header>
@@ -15,6 +22,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#shoes">Shoes</a></li>
                     <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="#auth" id="auth-link">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -54,6 +62,36 @@
                 <div id="cart-total">
                     <p>Total: KSh <span id="total-amount">0</span></p>
                     <button id="checkout-btn" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="auth-section" style="display: none;">
+            <div class="container">
+                <h2>User Authentication</h2>
+                <div id="login-form">
+                    <h3>Login</h3>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button onclick="loginUser()">Login</button>
+                    <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+                </div>
+                
+                <div id="signup-form" style="display: none;">
+                    <h3>Sign Up</h3>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                    <input type="text" id="signup-name" placeholder="Full Name" required>
+                    <button onclick="signupUser()">Sign Up</button>
+                    <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+                </div>
+                
+                <div id="user-profile" style="display: none;">
+                    <h3>Welcome, <span id="user-name"></span>!</h3>
+                    <p>Email: <span id="user-email"></span></p>
+                    <button onclick="logoutUser()">Logout</button>
+                    <h4>Your Orders</h4>
+                    <div id="user-orders"></div>
                 </div>
             </div>
         </section>

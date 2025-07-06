@@ -1,0 +1,37 @@
+{
+  "name": "mitumba-shoes-ecommerce",
+  "version": "1.0.0",
+  "description": "Children's footwear e-commerce website with Firebase integration",
+  "main": "index.html",
+  "scripts": {
+    "firebase:init": "firebase init",
+    "firebase:deploy": "firebase deploy",
+    "firebase:deploy:rules": "firebase deploy --only firestore:rules",
+    "firebase:deploy:hosting": "firebase deploy --only hosting",
+    "firebase:serve": "firebase serve",
+    "start": "firebase serve",
+    "setup": "npm install && firebase login",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "ecommerce",
+    "firebase",
+    "shoes",
+    "children",
+    "mitumba",
+    "kenya"
+  ],
+  "author": "Mitumba Shoes",
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mitumba-shoes-ecommerce"
+  }
+}
